@@ -8,6 +8,8 @@ class QComboBox;
 class QSpinBox;
 class QCheckBox;
 
+class RenderArea;
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -22,6 +24,7 @@ private slots:
     void brushChanged();
 
 private:
+    RenderArea *renderArea;
     QLabel *shapeLabel;
     QLabel *penWidthLabel;
     QLabel *penStyleLabel;
