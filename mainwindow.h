@@ -11,7 +11,10 @@ public:
     MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-public slots:
+private slots:
+    void shapeChanged();
+    void penChaneged();
+    void brushChanged();
 
 private:
 
