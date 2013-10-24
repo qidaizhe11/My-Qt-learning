@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/">
+    <qresource>
         <file>images/brick.png</file>
         <file>images/qt-logo.png</file>
     </qresource>

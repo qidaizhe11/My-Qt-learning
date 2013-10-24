@@ -3,6 +3,8 @@
 #include <QtWidgets>
 #include "renderarea.h"
 
+const int IdRole = Qt::UserRole;
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
@@ -134,6 +136,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     setLayout(mainLayout);
 
+    shapeChanged();
+    penChaneged();
+    brushChanged();
+    antialiasingCheckBox->setChecked(true);
+    setWindowTitle(tr("Basic Drawing"));
 }
 
 MainWindow::~MainWindow()
@@ -147,15 +154,53 @@ MainWindow::~MainWindow()
 
 void MainWindow::shapeChanged()
 {
-
+    RenderArea::Shape shape = RenderArea::Shape(
+        shapeComboBox->itemData(shapeComboBox->currentIndex(), IdRole).toInt());
+    renderArea->setShape(shape);
 }
 
 void MainWindow::penChaneged()
 {
-
+    int width = penWidthSpinBox->value();
+    Qt::PenStyle style = Qt::PenStyle(penStyleComboBox->itemData(
+            penStyleComboBox->currentIndex(), IdRole).toInt());
+    Qt::PenCapStyle cap = Qt::PenCapStyle(penCapComboBox->itemData(
+            penCapComboBox->currentIndex(), IdRole).toInt());
+    Qt::PenJoinStyle join = Qt::PenJoinStyle(penJoinComboBox->itemData(
+            penJoinComboBox->currentIndex(), IdRole).toInt());
+    renderArea->setPen(QPen(Qt::blue, width, style, cap, join));
 }
 
 void MainWindow::brushChanged()
 {
+    Qt::BrushStyle style = Qt::BrushStyle(brushStyleComboBox->itemData(
+            brushStyleComboBox->currentIndex(), IdRole).toInt());
 
+    if (style == Qt::LinearGradientPattern) {
+        QLinearGradient linearGradient(0, 0, 100, 100);
+        linearGradient.setColorAt(0.0, Qt::white);
+        linearGradient.setColorAt(0.2, Qt::green);
+        linearGradient.setColorAt(1.0, Qt::black);
+        renderArea->setBrush(linearGradient);
+    }
+    else if (style == Qt::RadialGradientPattern) {
+        QRadialGradient radialGradient(50, 50, 50, 70, 70);
+        radialGradient.setColorAt(0.0, Qt::white);
+        radialGradient.setColorAt(0.2, Qt::green);
+        radialGradient.setColorAt(1.0, Qt::black);
+        renderArea->setBrush(radialGradient);
+    }
+    else if (style == Qt::ConicalGradientPattern) {
+        QConicalGradient conicalGradient(50, 50, 150);
+        conicalGradient.setColorAt(0.0, Qt::white);
+        conicalGradient.setColorAt(0.2, Qt::green);
+        conicalGradient.setColorAt(1.0, Qt::black);
+        renderArea->setBrush(conicalGradient);
+    }
+    else if (style == Qt::TexturePattern) {
+        renderArea->setBrush(QBrush(QPixmap(":/images/brick.png")));
+    }
+    else {
+        renderArea->setBrush(QBrush(Qt::green, style));
+    }
 }
