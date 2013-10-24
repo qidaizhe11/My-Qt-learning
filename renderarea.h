@@ -27,6 +27,9 @@ public slots:
   void setAntialiased(bool antialiased);
   void setTransformed(bool transformed);
 
+protected:
+  void paintEvent(QPaintEvent *);
+
 private:
     Shape shape;
     QPen pen;

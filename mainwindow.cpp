@@ -121,9 +121,41 @@ MainWindow::MainWindow(QWidget *parent)
     connect(transformationsCheckBox, SIGNAL(toggled(bool)),
             renderArea, SLOT(setTransformed(bool)));
 
+    QGridLayout *mainLayout = new QGridLayout;
+    mainLayout->setColumnStretch(0, 1);
+    mainLayout->setColumnStretch(3, 1);
+    mainLayout->addWidget(renderArea, 0, 0, 1, 4);
+    mainLayout->addWidget(shapeLabel, 2, 0, Qt::AlignRight);
+    mainLayout->addWidget(shapeComboBox, 2, 1);
+    mainLayout->addWidget(penJoinLabel, 2, 2, Qt::AlignRight);
+    mainLayout->addWidget(penJoinComboBox, 2, 3);
+    mainLayout->addWidget(penWidthLabel, 3, 0, Qt::AlignRight);
+    mainLayout->addWidget(penWidthSpinBox, 3, 1);
+
+    setLayout(mainLayout);
+
 }
 
 MainWindow::~MainWindow()
+{
+
+}
+
+//
+// slots
+//
+
+void MainWindow::shapeChanged()
+{
+
+}
+
+void MainWindow::penChaneged()
+{
+
+}
+
+void MainWindow::brushChanged()
 {
 
 }

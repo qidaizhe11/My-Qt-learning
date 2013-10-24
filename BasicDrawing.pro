@@ -18,3 +18,6 @@ SOURCES += main.cpp\
 
 HEADERS  += mainwindow.h \
     renderarea.h
+
+RESOURCES += \
+    basicdrawing.qrc
