@@ -2,6 +2,9 @@
 #define RENDERAREA_H
 
 #include <QWidget>
+#include <QBrush>
+#include <QPen>
+#include <QPixmap>
 
 class RenderArea : public QWidget
 {
@@ -18,10 +21,19 @@ public:
 signals:
 
 public slots:
-  //void setShape()
+  void setShape(Shape shape);
+  void setPen(const QPen &pen);
+  void setBrush(const QBrush &brush);
+  void setAntialiased(bool antialiased);
+  void setTransformed(bool transformed);
 
 private:
-
+    Shape shape;
+    QPen pen;
+    QBrush brush;
+    bool antialiased;
+    bool transformed;
+    QPixmap pixmap;
 };
 
 #endif // RENDERAREA_H
