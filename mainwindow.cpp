@@ -6,9 +6,12 @@
 const int IdRole = Qt::UserRole;
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
+    : QWidget(parent)
 {
     renderArea = new RenderArea;
+
+    //int temp = 200;
+    //double d = 1.0;
 
     shapeComboBox = new QComboBox;
     shapeComboBox->addItem(tr("Polygon"), RenderArea::Polygon);
@@ -129,10 +132,10 @@ MainWindow::MainWindow(QWidget *parent)
     mainLayout->addWidget(renderArea, 0, 0, 1, 4);
     mainLayout->addWidget(shapeLabel, 2, 0, Qt::AlignRight);
     mainLayout->addWidget(shapeComboBox, 2, 1);
-    mainLayout->addWidget(penJoinLabel, 2, 2, Qt::AlignRight);
-    mainLayout->addWidget(penJoinComboBox, 2, 3);
     mainLayout->addWidget(penWidthLabel, 3, 0, Qt::AlignRight);
     mainLayout->addWidget(penWidthSpinBox, 3, 1);
+    mainLayout->addWidget(penJoinLabel, 2, 2, Qt::AlignRight);
+    mainLayout->addWidget(penJoinComboBox, 2, 3);
 
     setLayout(mainLayout);
 
