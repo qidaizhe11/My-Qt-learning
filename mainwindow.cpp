@@ -132,10 +132,19 @@ MainWindow::MainWindow(QWidget *parent)
     mainLayout->addWidget(renderArea, 0, 0, 1, 4);
     mainLayout->addWidget(shapeLabel, 2, 0, Qt::AlignRight);
     mainLayout->addWidget(shapeComboBox, 2, 1);
-    mainLayout->addWidget(penWidthLabel, 3, 0, Qt::AlignRight);
-    mainLayout->addWidget(penWidthSpinBox, 3, 1);
     mainLayout->addWidget(penJoinLabel, 2, 2, Qt::AlignRight);
     mainLayout->addWidget(penJoinComboBox, 2, 3);
+    mainLayout->addWidget(penWidthLabel, 3, 0, Qt::AlignRight);
+    mainLayout->addWidget(penWidthSpinBox, 3, 1);
+    mainLayout->addWidget(penCapLabel, 3, 2, Qt::AlignRight);
+    mainLayout->addWidget(penCapComboBox, 3, 3);
+    mainLayout->addWidget(penStyleLabel, 4, 0, Qt::AlignRight);
+    mainLayout->addWidget(penStyleComboBox, 4, 1);
+    mainLayout->addWidget(brushStyleLabel, 4, 2, Qt::AlignRight);
+    mainLayout->addWidget(brushStyleComboBox, 4, 3);
+    mainLayout->addWidget(otherOptionsLabel, 5, 0, Qt::AlignRight);
+    mainLayout->addWidget(antialiasingCheckBox, 5, 1, 1, 1, Qt::AlignRight);
+    mainLayout->addWidget(transformationsCheckBox, 5, 2, 1, 2, Qt::AlignRight);
 
     setLayout(mainLayout);
 
