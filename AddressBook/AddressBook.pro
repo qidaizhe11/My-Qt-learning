@@ -14,7 +14,9 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         MainWindow.cpp \
-    TableModel.cpp
+    TableModel.cpp \
+    AddressWidget.cpp
 
 HEADERS  += MainWindow.h \
-    TableModel.h
+    TableModel.h \
+    AddressWidget.h
