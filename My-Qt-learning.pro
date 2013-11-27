@@ -3,4 +3,5 @@ TEMPLATE = subdirs
 SUBDIRS += \
 #    BasicDrawing \
 #    ModelView \
-    ModelView5-edit
+    ModelView5-edit \
+    AddressBook

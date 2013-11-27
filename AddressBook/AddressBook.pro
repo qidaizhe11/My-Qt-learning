@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2013-11-26T16:25:22
+# Project created by QtCreator 2013-11-27T15:57:00
 #
 #-------------------------------------------------
 
@@ -8,15 +8,13 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = ModelView5-edit
+TARGET = AddressBook
 TEMPLATE = app
 
 
 SOURCES += main.cpp\
         MainWindow.cpp \
-    MyModel.cpp \
-    MainWindow6.cpp
+    TableModel.cpp
 
 HEADERS  += MainWindow.h \
-    MyModel.h \
-    MainWindow6.h
+    TableModel.h
